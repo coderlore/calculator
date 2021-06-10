@@ -1,22 +1,20 @@
-const container = document.getElementsByClassName("container");
+const container = document.getElementById("container");
 
 let row = document.getElementsByClassName("row"); 
 let col = document.getElementsByClassName("col");
 
 let value = 4;
 
-grid(value);
-
 function grid(value) {
     makeRows(value);
     makeColumns(value);
 }
 
-function makeRows(value) {
+function makeRows(rowNum) {
     // Creates rows
-    for (x = 0; x < value; x++) {
+    for (x = 0; x < rowNum; x++) {
         let row = document.createElement("div");
-        container.appendChild(row).className = "row";
+        container.appendChild(row).className = "rows";
     };
 };
 
@@ -29,6 +27,7 @@ function makeColumns(colNum) {
     };
 };
 
+grid(value);
 // math operators 
 function add(a,b) {
     return a + b;

@@ -1,17 +1,17 @@
-.container {
+#container {
     max-width: 600px;
     margin: 0 auto;
-    border-style:solid;
-    border-color: red;
 }
 
-.row {
+.rows {
     display: flex;
     flex-direction: row; 
     flex-wrap: wrap;
+    border-style:solid;
+    border-color: blue;
 }
 
-.column {
+.col {
     flex-basis: 100%;
 }
 
