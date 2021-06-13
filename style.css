@@ -1,8 +1,19 @@
 #container {
     max-width: 600px;
     margin: 0 auto;
+    display: grid;
 }
 
+div {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    width: 5%;
+    margin: 5px;
+}
+/*
 .rows {
     display: flex;
     flex-direction: row; 
@@ -13,6 +24,10 @@
 
 .col {
     flex-basis: 100%;
+    border: 1px solid rgba(109, 36, 36, 0.699);
+    min-width: 10px;
+    min-height: 10px;
+    display: inline-block;
 }
 
 @media screen and (min-width: 800px) {
@@ -20,3 +35,4 @@
         flex: 1;
     }
 }
+*/
