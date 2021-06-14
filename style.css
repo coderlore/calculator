@@ -1,7 +1,16 @@
 #container {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    width: 100%; 
+    height: 80px; 
+    border: 1px solid black;
 }
 
 div {
@@ -10,29 +19,16 @@ div {
 }
 
 button {
-    width: 5%;
+    width: 100%;
     margin: 5px;
-}
-/*
-.rows {
-    display: flex;
-    flex-direction: row; 
-    flex-wrap: wrap;
-    border-style:solid;
-    border-color: blue;
+    height: 40px;
+    flex: 1 0 21%;
 }
 
-.col {
-    flex-basis: 100%;
-    border: 1px solid rgba(109, 36, 36, 0.699);
-    min-width: 10px;
-    min-height: 10px;
-    display: inline-block;
+button:disabled,
+button[disabled]{
+  border: 1px solid #b8b4b4;
+  background-color: #b8b4b4;
+  color: #b8b4b4;
+  height: 40px;
 }
-
-@media screen and (min-width: 800px) {
-    .column {
-        flex: 1;
-    }
-}
-*/
