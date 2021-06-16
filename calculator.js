@@ -3,7 +3,7 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click',() => {
         display(button.value);
-        console.log(button.value);
+        document.getElementById('display').innerHTML=button.value;
     });
 });
 
