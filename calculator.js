@@ -1,11 +1,26 @@
-const buttons = document.querySelectorAll('button');
+const numbers = document.querySelectorAll('.numbers');
+const operator = document.querySelectorAll('.operator');
+const clear = document.querySelectorAll('.clear');
+const backspace = document.querySelectorAll('.backspace');
+const equals = document.querySelectorAll('.equals');
 
-buttons.forEach((button) => {
+numbers.forEach((button) => {
     button.addEventListener('click',() => {
-        display(button.value);
-        document.getElementById('display').innerHTML=button.value;
+        document.getElementById('display').innerHTML=button.textContent;
+        firstDigit = button.textContent;
+        appendNum(firstDigit);
     });
 });
+
+operator.forEach((button) => {
+    button.addEventListener('click',() => {
+        //document.getElementById('display').innerHTML=button.textContent;
+    });
+});
+
+function appendNum(num1,num2) {
+    num1.concat(num2);
+}
 
 // math operators 
 function add(a,b) {
@@ -25,7 +40,7 @@ function divide(a,b) {
 }
 
 // take an operator and 2 numbers then calls a math operator
-function operate() {
+function operate(operator, num1, num2) {
     //placeholder to evelate expressions
 }
 
