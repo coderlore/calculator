@@ -3,23 +3,28 @@ const operator = document.querySelectorAll('.operator');
 const clear = document.querySelectorAll('.clear');
 const backspace = document.querySelectorAll('.backspace');
 const equals = document.querySelectorAll('.equals');
+const display = document.getElementById('display');
+
+let mathOperator = '';
+let digit = '';
 
 numbers.forEach((button) => {
     button.addEventListener('click',() => {
-        document.getElementById('display').innerHTML=button.textContent;
-        firstDigit = button.textContent;
-        appendNum(firstDigit);
+        display.innerHTML=button.textContent;
+        appendNum(display.textContent);
     });
 });
 
 operator.forEach((button) => {
     button.addEventListener('click',() => {
         //document.getElementById('display').innerHTML=button.textContent;
+        mathOperator = button.textContent;
+        console.log(mathOperator);
     });
 });
 
-function appendNum(num1,num2) {
-    num1.concat(num2);
+function appendNum(digit) {
+    display.textContent += digit;
 }
 
 // math operators 
@@ -40,13 +45,11 @@ function divide(a,b) {
 }
 
 // take an operator and 2 numbers then calls a math operator
-function operate(operator, num1, num2) {
+function operate(mathOperator, num1, num2) {
     //placeholder to evelate expressions
-}
-
-// displays the current value
-function display() {
-    //console.log()
+    if (mathOperator == '+') {
+        return add(num1, num2);
+    }
 }
 
 console.log(divide(4,2));
