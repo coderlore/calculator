@@ -31,7 +31,7 @@ operator.forEach((button) => {
     button.addEventListener('click',() => {
         //document.getElementById('display').innerHTML=button.textContent;
         mathOperator = button.textContent;
-        console.log(mathOperator);
+        button.classList.add('is-depressed');
     });
 });
 
