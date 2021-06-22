@@ -1,4 +1,5 @@
 const numbers = document.querySelectorAll('.numbers');
+const decimal = document.querySelectorAll('.decimal');
 const operator = document.querySelectorAll('.operator');
 const clear = document.querySelectorAll('.clear');
 const backspace = document.querySelectorAll('.backspace');
@@ -10,8 +11,19 @@ let digit = '';
 
 numbers.forEach((button) => {
     button.addEventListener('click',() => {
-        display.innerHTML=button.textContent;
-        appendNum(display.textContent);
+        //console.log(button.textContent); // what the user keys 
+        // display.textContent=button.textContent;
+        if (display.textContent === '0') {
+            display.textContent = button.textContent;
+        } else if (display.textContent != '0') {
+            display.textContent = display.textContent + button.textContent;
+        }
+    });
+});
+
+decimal.forEach((button) => {
+    button.addEventListener('click',() => {
+        display.textContent = display.textContent + '.';
     });
 });
 
@@ -24,7 +36,11 @@ operator.forEach((button) => {
 });
 
 function appendNum(digit) {
-    display.textContent += digit;
+    if (display.textContent === '0') {
+        digit;
+    } else if (display.textContent != '0') {
+        display.textContent += digit;
+    }
 }
 
 // math operators 
