@@ -37,3 +37,8 @@ button[disabled]{
   color: #b8b4b4;
   height: 40px;
 }
+
+.is-depressed {
+    background-color: aqua;
+    border: 1px solid black;
+}

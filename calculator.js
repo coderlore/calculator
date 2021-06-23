@@ -32,6 +32,7 @@ operator.forEach((button) => {
         //document.getElementById('display').innerHTML=button.textContent;
         mathOperator = button.textContent;
         button.classList.add('is-depressed');
+        operator.setAttribute('previousKeyType','operator');
     });
 });
 
