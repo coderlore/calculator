@@ -70,19 +70,23 @@ function appendNum(digit) {
 
 // math operators 
 function add(a,b) {
-    return parseFloat(a) + parseFloat(b);
+    return Math.round((parseFloat(a) + parseFloat(b)) * 10000) / 10000;
 }
 
 function subtract(a,b) {
-    return parseFloat(a) - parseFloat(b); 
+    return Math.round((parseFloat(a) - parseFloat(b)) * 10000) / 10000; 
 }
 
 function multiply(a,b) {
-    return parseFloat(a) * parseFloat(b);
+    return Math.round((parseFloat(a) * parseFloat(b)) * 10000) / 10000;
 }
 
 function divide(a,b) {
-    return parseFloat(a) / parseFloat(b);
+    if (b == 0) {
+        return 'Cannot divide by zero';
+    } else {
+        return Math.round((parseFloat(a) / parseFloat(b)) * 10000) / 10000;
+    }
 }
 
 // take an operator and 2 numbers then calls a math operator
