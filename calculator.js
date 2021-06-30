@@ -8,14 +8,11 @@ const display = document.getElementById('display');
 
 let previousKeyType = '';
 let mathOperator = '';
-let digit = '';
 let secondNum = '';
 let firstNum = '';
 
 numbers.forEach((button) => {
     button.addEventListener('click',() => {
-        //console.log(button.textContent); // what the user keys 
-        // display.textContent=button.textContent;
         if (display.textContent === '0' || previousKeyType === 'operator') {
             display.textContent = button.textContent;
             previousKeyType = '';
@@ -33,15 +30,24 @@ decimal.forEach((button) => {
 
 operator.forEach((button) => {
     button.addEventListener('click',() => {
-        //document.getElementById('display').innerHTML=button.textContent;
         Array.from(button.parentNode.children)
             .forEach(k => k.classList.remove('is-depressed'));
-        mathOperator = button.textContent;
+        if (secondNum == '') {
+            mathOperator = button.textContent;
+            button.setAttribute('data-first-number',display.textContent);
+            firstNum = button.getAttribute('data-first-number')
+            button.classList.add('is-depressed');
+            button.setAttribute('data-previous-key-type', 'operator');
+            previousKeyType = button.getAttribute('data-previous-key-type');
+        } else {
+            operate(mathOperator,firstNum,secondNum);
+        };
+        /*mathOperator = button.textContent;
         button.setAttribute('data-first-number',display.textContent);
         firstNum = button.getAttribute('data-first-number')
         button.classList.add('is-depressed');
         button.setAttribute('data-previous-key-type', 'operator');
-        previousKeyType = button.getAttribute('data-previous-key-type');
+        previousKeyType = button.getAttribute('data-previous-key-type');*/
     });
 });
 
@@ -59,14 +65,6 @@ equals.forEach((button) => {
         operate(mathOperator, firstNum, secondNum)
     });
 });
-
-function appendNum(digit) {
-    if (display.textContent === '0') {
-        digit;
-    } else if (display.textContent != '0') {
-        display.textContent += digit;
-    }
-}
 
 // math operators 
 function add(a,b) {
