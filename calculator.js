@@ -32,28 +32,28 @@ operator.forEach((button) => {
     button.addEventListener('click',() => {
         Array.from(button.parentNode.children)
             .forEach(k => k.classList.remove('is-depressed'));
-        if (secondNum == '') {
-            mathOperator = button.textContent;
-            button.setAttribute('data-first-number',display.textContent);
-            firstNum = button.getAttribute('data-first-number')
-            button.classList.add('is-depressed');
-            button.setAttribute('data-previous-key-type', 'operator');
-            previousKeyType = button.getAttribute('data-previous-key-type');
-        } else {
-            operate(mathOperator,firstNum,secondNum);
-        };
-        /*mathOperator = button.textContent;
+        if (firstNum && mathOperator) {
+            secondNum = display.textContent;
+            let calcVal = operate(mathOperator, firstNum, secondNum)
+            calVal = display.textContent
+            firstNum = calVal;
+        }
+        mathOperator = button.textContent;
         button.setAttribute('data-first-number',display.textContent);
         firstNum = button.getAttribute('data-first-number')
         button.classList.add('is-depressed');
         button.setAttribute('data-previous-key-type', 'operator');
-        previousKeyType = button.getAttribute('data-previous-key-type');*/
+        previousKeyType = button.getAttribute('data-previous-key-type');
     });
 });
 
 clear.forEach((button) => {
     button.addEventListener('click',() => {
         display.textContent = 0;
+        firstNum = '';
+        secondNum = '';
+        previousKeyType = '';
+        mathOperator = '';
     });
 });
 
