@@ -24,7 +24,9 @@ numbers.forEach((button) => {
 
 decimal.forEach((button) => {
     button.addEventListener('click',() => {
-        display.textContent = display.textContent + '.';
+        if (!display.textContent.includes('.')) {
+            display.textContent = display.textContent + '.';
+        }
     });
 });
 
@@ -32,7 +34,7 @@ operator.forEach((button) => {
     button.addEventListener('click',() => {
         Array.from(button.parentNode.children)
             .forEach(k => k.classList.remove('is-depressed'));
-        if (firstNum && mathOperator) {
+        if (firstNum && mathOperator && previousKeyType != 'operator') {
             secondNum = display.textContent;
             let calcVal = operate(mathOperator, firstNum, secondNum)
             calVal = display.textContent
@@ -54,6 +56,8 @@ clear.forEach((button) => {
         secondNum = '';
         previousKeyType = '';
         mathOperator = '';
+        Array.from(button.parentNode.children)
+            .forEach(k => k.classList.remove('is-depressed'));
     });
 });
 
