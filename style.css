@@ -21,7 +21,7 @@
     font-size: xx-large;
     font-family: Arial, Helvetica, sans-serif;
     padding: 0px 20px;
-    background-color: gainsboro;
+    background-color: #dcdcdc;
     border-radius: 8px;
 }
 
@@ -50,4 +50,8 @@ button[disabled]{
 .is-depressed {
     background-color: white;
     border: 1px solid black;
+}
+
+.operator {
+    background-color: orange;
 }
